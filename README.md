@@ -1,6 +1,8 @@
-# Ctredits
+# How to Build?
+Static Library MUST be built running on VS2022 x64/release.
+Used C++23 (haven't tested older versions)
+
+
+#### Ctredits
 
 Thanks to GuckTube For allowing me to understand how child-process modules work! <3
-
-### GTPS-Status-Checker
-C++ GTPS Status Checker, Open Source Built in WriterJS
