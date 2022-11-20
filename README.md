@@ -1,5 +1,5 @@
 # How to Build?
-Static Library MUST be built running on VS2022 x64/release.
+Static Library was built running on VS2022 x64/release.
 Used C++23 (haven't tested older versions)
 
 
