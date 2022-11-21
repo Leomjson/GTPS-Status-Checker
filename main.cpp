@@ -1,32 +1,35 @@
 #include "writerJS.hpp"
 #pragma comment(lib, "WriterJS.lib")
-using namespace std;
-using namespace JS;
-
+#pragma comment(lib, "Ws2_32.lib") // WinSock
+using namespace std; using namespace JS;
 #define _ WriterJS
 
 uint64_t channel_ID = 0; // channel id here
-writerJS_C_ token = "token here";
+writerJS_C_ token = ""; // bot token here
 
 int main()
 {
 	node::destroy();
 	npm::init();
-	npm::install("discord.js child_process");
-
-	discordjs::GatewayIntentBits = true, discordjs::EmbedBuilder = true;
+	npm::install("discord.js child_process fs");
+	discordjs::GatewayIntentBits = true, 
+		discordjs::EmbedBuilder = true, 
+		discordjs::ActivityType = true;
 	_(discordjs::include());
 	_(child_process::include());
-
+	_(fs::include());
 	_(child_process::process());
 
-	// in ready event
-	_(discordjs::event::ready(
+	_(discordjs::event::ready
+	(
 		console::slog(discordjs::bot::user::tag() + " is online!")newline
+
+		discordjs::bot::user::setPresence("type whatever here!", discordjs::bot::user::online(), "streaming", "gtps7")newline
+
 		const_("channel1") + discordjs::cache_channel(channel_ID)newline
 		const_("embed1") + discordjs::embed::setTitle("Loading...")newline
+		discordjs::embed::setDescription("Online: Loading...")newline
 		discordjs::embed::setColor(0xffb31e)newline
-
 		discordjs::embed::callback::send("channel1", "embed1") + discordjs::embed::callback::cb
 		(
 			setInterval
@@ -51,7 +54,6 @@ int main()
 			)
 		)
 	));
-
 	_(discordjs::login(token));
 	node::run();
 	while (true);
