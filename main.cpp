@@ -28,7 +28,6 @@ int main()
 
 		const_("channel1") + discordjs::cache_channel(channel_ID)newline
 		const_("embed1") + discordjs::embed::setTitle("Loading...")newline
-		discordjs::embed::setDescription("Online: Loading...")newline
 		discordjs::embed::setColor(0xffb31e)newline
 		discordjs::embed::callback::send("channel1", "embed1") + discordjs::embed::callback::cb
 		(
