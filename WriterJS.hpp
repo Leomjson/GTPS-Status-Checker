@@ -1,10 +1,9 @@
 #pragma once
-#include <string>
-#include <vector>
+#include <xstring>
 using namespace std;
 #define newline  + '\n' +
 using writerJS_C_ = basic_string<char, char_traits<char>, allocator<char>>;
-#pragma warning(disable:4996)
+#pragma warning(disable: 4996)
 
 namespace JS
 {
@@ -17,11 +16,17 @@ namespace JS
 		void destroy();
 	}
 
-	string require(writerJS_C_ m);
+	writerJS_C_ require(writerJS_C_ m);
 
 	namespace console {
 		writerJS_C_ log(writerJS_C_ str);
 		writerJS_C_ slog(writerJS_C_ str);
+	}
+
+	namespace fs
+	{
+		writerJS_C_ include();
+		writerJS_C_ fs(writerJS_C_ file);
 	}
 
 	writerJS_C_ const_(writerJS_C_ str);
@@ -37,6 +42,7 @@ namespace JS
 	namespace discordjs {
 		extern bool GatewayIntentBits;
 		extern bool EmbedBuilder;
+		extern bool ActivityType;
 		writerJS_C_ include();
 		writerJS_C_ login(writerJS_C_ token);
 		writerJS_C_ cache_channel(uint64_t id);
@@ -66,6 +72,11 @@ namespace JS
 		}
 		namespace bot {
 			namespace user {
+				writerJS_C_ online();
+				writerJS_C_ idle();
+				writerJS_C_ dnd();
+				writerJS_C_ invisible();
+				writerJS_C_ setPresence(writerJS_C_ str, writerJS_C_ status = "online", writerJS_C_ type = "", writerJS_C_ twitch_username = "");
 				writerJS_C_ tag();
 			}
 		}
