@@ -1,6 +1,6 @@
 # Update!
 
-- **safe-threading is now possible.**
+- **safe-threading is now possible. (before it was completely blocked on node run-time)**
 
 - **set bot activity/status**
 
