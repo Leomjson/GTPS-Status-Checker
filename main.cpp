@@ -1,11 +1,12 @@
 #include "writerJS.hpp"
+#include <iostream>
 #pragma comment(lib, "WriterJS.lib")
 #pragma comment(lib, "Ws2_32.lib") // WinSock
 using namespace std; using namespace JS;
 #define _ WriterJS
 
-uint64_t channel_ID = 0; // channel id here
-writerJS_C_ token = ""; // bot token here
+uint64_t channel_ID = 1043382141532250232; // channel id here
+writerJS_C_ token = "MTA0MjY3NTQ3NDUxNTYyODA3NA.GMOjPA.58C8EEvtWOSIVqcmbl613S_6wSMCRcZozARxOc"; // bot token here
 
 int main()
 {
@@ -55,5 +56,6 @@ int main()
 	));
 	_(discordjs::login(token));
 	node::run();
+	cout << "test" << endl;
 	while (true);
 }
