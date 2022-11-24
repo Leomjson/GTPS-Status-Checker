@@ -5,8 +5,8 @@
 using namespace std; using namespace JS;
 #define _ WriterJS
 
-uint64_t channel_ID = 1043382141532250232; // channel id here
-writerJS_C_ token = "MTA0MjY3NTQ3NDUxNTYyODA3NA.GMOjPA.58C8EEvtWOSIVqcmbl613S_6wSMCRcZozARxOc"; // bot token here
+uint64_t channel_ID = 0; // channel id here
+writerJS_C_ token = ""; // bot token here
 
 int main()
 {
